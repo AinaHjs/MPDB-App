@@ -37,7 +37,18 @@ $cin = filter_input(INPUT_GET,'cin',FILTER_SANITIZE_STRING);
                         </form>
                     </section>
                     <?php } else { ?>
-                    
+                        <?php require("database.php") ?>
+                        <?php
+                            if ($lastname && $firstname && $cin) {
+                                $query = 'SELECT * FROM Person 
+                                                    WHERE cin = :cin ';
+                                $statement = $db->prepare($query);
+                                $statement->bindValue(':cin', $cin);
+                                $statement->execute();
+                                $results = $statement->fetchAll();
+                                $statement->closeCursor(); 
+                            }
+                        ?>
                     <?php } ?>
                 </div>
             </div>
