@@ -1,8 +1,23 @@
 <?php
 $lastname = filter_input(INPUT_GET,'lastName',FILTER_SANITIZE_STRING);
 $firstname = filter_input(INPUT_GET,'firstName',FILTER_SANITIZE_STRING);
-$cin = filter_input(INPUT_GET,'cin',FILTER_SANITIZE_STRING);
+$IDnumber = filter_input(INPUT_GET,'cin',FILTER_SANITIZE_STRING);
+
+$dofBirth = filter_input(INPUT_POST, 'dofBirth', FILTER_SANITIZE_STRING);
+
+$adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_STRING);
+$lieu = filter_input(INPUT_POST, 'lieu', FILTER_SANITIZE_STRING);
+$region = filter_input(INPUT_POST, 'region', FILTER_SANITIZE_STRING);
+$arrondissement = filter_input(INPUT_POST, 'arrondissement', FILTER_SANITIZE_STRING);
+
+$prenomPere = filter_input(INPUT_POST, 'prenompere', FILTER_SANITIZE_STRING);
+$nomPere = filter_input(INPUT_POST, 'nompere', FILTER_SANITIZE_STRING);
+$prenomMere = filter_input(INPUT_POST, 'prenommere', FILTER_SANITIZE_STRING);
+$nomMere = filter_input(INPUT_POST, 'nommere', FILTER_SANITIZE_STRING);
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,26 +42,21 @@ $cin = filter_input(INPUT_GET,'cin',FILTER_SANITIZE_STRING);
                         <section>
                         <h3>Rechercher une personne</h3>
                         <form action="." method="GET"> 
-                            <label for="lastName">Nom :</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
-                            <label for="firstName">Prenom :</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
-                            <label for="cin">Numero de la CIN : </label>
-                            <input type="number" class="form-control" id="cin" name="cin" required>
+                            <input type="text" class="form-control" id="firstName" name="firstName"  placeholder="Prenom" required>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" required>
+                            <input type="number" class="form-control" id="cin" name="cin"  placeholder="Numero de la CIN" required>
                             <button class="btn btn-primary">Chercher</button>
                         </form>
                     </section>
                     <?php } else { ?>
-                        <?php require("database.php") ?>
+                        <?php 
+                        require("database.php");
+                        require("setData.php");
+                        require("getData.php"); 
+                        ?>
                         <?php
-                            if ($lastname && $firstname && $cin) {
-                                $query = 'SELECT * FROM Person 
-                                                    WHERE cin = :cin ';
-                                $statement = $db->prepare($query);
-                                $statement->bindValue(':cin', $cin);
-                                $statement->execute();
-                                $results = $statement->fetchAll();
-                                $statement->closeCursor(); 
+                            if ($lastname && $firstname && $IDNumber) {
+                                 getData();
                             }
                         ?>
                     <?php } ?>
