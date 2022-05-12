@@ -1,6 +1,6 @@
 <?php
 
-$dsn = "mysql:host = localhost; dbnama = MPDB";
+$dsn = "mysql:host = localhost; dbnama = mpdb_app";
 $username = "root";
 
 try {
