@@ -1,24 +1,100 @@
+$primary: #4898C7;
+$secondary: #92A8B4;
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
-.flex {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 header {
-    margin-bottom: 50px;
-    color: #fff;
-    background-color: #000;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: 1px solid lightgray;
+        .brand {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .navigationBar {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            p {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0px;
+                a {
+                    text-decoration: none;
+                    color: $primary;
+                }
+            }
+        }
+    }
 }
 
+
+/* 
+    2- Main section
+*/
+main {    
+    .main {
+        height: 89vh;
+        .searchItems {
+            display: flex;
+            justify-content: center;
+            border-right: 1px solid lightgray ;
+        }
+        .displayItems {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            overflow-y: scroll;
+            justify-content: center;
+        }
+    }
+}
+
+/* 
+    3- Footer section
+*/
 footer {
-    margin-top: 50px;
-    color: #fff;
-    background-color: #000;
+    .footer {
+        display: flex;
+        height: 4vh;
+        justify-content: space-around;
+        border-top: 0.05px solid lightgray ;
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            color: grey;
+            margin: 0px;
+        }  
+        .settings {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }     
+        .socialNetwork {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        .Aina {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                a {
+                    text-decoration: none;
+                    color: $primary;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }
-

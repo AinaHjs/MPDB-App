@@ -3,20 +3,85 @@
   padding: 0px;
 }
 
-.flex {
+header .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid lightgray;
+}
+header .header .brand {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+header .header .navigationBar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+header .header .navigationBar p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0px;
+}
+header .header .navigationBar p a {
+  text-decoration: none;
+  color: #4898C7;
+}
+
+/* 
+    2- Main section
+*/
+main .main {
+  height: 89vh;
+}
+main .main .searchItems {
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid lightgray;
+}
+main .main .displayItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: scroll;
+  justify-content: center;
+}
+
+/* 
+    3- Footer section
+*/
+footer .footer {
+  display: flex;
+  height: 4vh;
+  justify-content: space-around;
+  border-top: 0.05px solid lightgray;
+}
+footer .footer p {
+  font-size: 16px;
+  font-weight: 400;
+  color: grey;
+  margin: 0px;
+}
+footer .footer .settings {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-header {
-  margin-bottom: 50px;
-  color: #fff;
-  background-color: #000;
+footer .footer .socialNetwork {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-footer {
-  margin-top: 50px;
-  color: #fff;
-  background-color: #000;
+footer .footer .Aina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer .Aina p a {
+  text-decoration: none;
+  color: #4898C7;
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */
